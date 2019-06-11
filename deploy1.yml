@@ -1,1 +1,15 @@
+---
+- hosts: prod
+  tasks:
+     - name: start apache-tomcat
+       command: /root/tomcat/bin/startup.sh
+
+     - name: copy petclinic.war
+       shell: cp /root/ansibledeployment/sample.war  /root/tomcat/webapps/
+
+     - name: stop apache-tomcat
+       command: nohup "/root/tomcat/bin/shutdown.sh"
+
+     - name: start apache-tomcat
+       command: nohup "/root/tomcat/bin/startup.sh"
 
