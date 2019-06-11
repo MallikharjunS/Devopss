@@ -1,6 +1,16 @@
 ---
 - hosts: prod
   tasks:
+  - name: Create Folder
+       file:
+        path: /root/ansibleapplndeployment
+        state: directory
+        mode: 0755
+        owner: ubuntu
+        group: ubuntu
+   - name: copying sample.war from ubuntu user to ansibleapplndeployment
+     shell: cp /home/ubuntu/sample.war /root/ansibleapplndeployment
+     
    - name: start apache-tomcat
      command: /root/tomcat/bin/startup.sh
 
