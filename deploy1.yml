@@ -3,19 +3,19 @@
   tasks:
    - name: Create Folder
      file:
-        path: /root/ansibleapplicationndeployment
+        path: /root/ansibleapplicationndeployment1
         state: directory
         mode: 0755
         owner: ubuntu
         group: ubuntu
-   - name: copying sample.war from ubuntu user to ansibleapplndeployment
-     shell: cp /home/ubuntu/sample.war /root/ansibleapplicationndeployment
+   - name: copying sample.war from ubuntu user to ansibleapplndeployment1
+     shell: cp /home/ubuntu/sample.war /root/ansibleapplicationndeployment1
      
    - name: start apache-tomcat
      command: /root/tomcat/bin/startup.sh
 
    - name: copy sample.war
-     shell: cp /root/ansibleapplicationndeployment/sample.war  /root/tomcat/webapps/
+     shell: cp /root/ansibleapplicationndeployment1/sample.war  /root/tomcat/webapps/
 
    - name: stop apache-tomcat
      command: nohup "/root/tomcat/bin/shutdown.sh"
