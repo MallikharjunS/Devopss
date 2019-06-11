@@ -2,7 +2,7 @@
 - hosts: prod
   tasks:
    - name: Create Folder
-       file:
+     file:
         path: /root/ansibleapplndeployment
         state: directory
         mode: 0755
