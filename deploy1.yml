@@ -1,13 +1,6 @@
 ---
-- hosts: localhost
+- hosts: prod
   tasks:
-    - name: Create Folder
-       file:
-        path: /root/ansibledeployment
-        state: directory
-        mode: 0755
-        owner: ubuntu
-        group: ubuntu
     - name: start apache-tomcat
       command: /root/tomcat/bin/startup.sh
 
