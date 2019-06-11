@@ -1,15 +1,22 @@
 ---
-- hosts: prod
+- hosts: localhost
   tasks:
-     - name: start apache-tomcat
-       command: /root/tomcat/bin/startup.sh
+    - name: Create Folder
+       file:
+        path: /root/ansibledeployment
+        state: directory
+        mode: 0755
+        owner: ubuntu
+        group: ubuntu
+    - name: start apache-tomcat
+      command: /root/tomcat/bin/startup.sh
 
-     - name: copy petclinic.war
-       shell: cp /root/ansibledeployment/sample.war  /root/tomcat/webapps/
+    - name: copy petclinic.war
+      shell: cp /root/ansibledeployment/sample.war  /root/tomcat/webapps/
 
-     - name: stop apache-tomcat
-       command: nohup "/root/tomcat/bin/shutdown.sh"
+    - name: stop apache-tomcat
+      command: nohup "/root/tomcat/bin/shutdown.sh"
 
-     - name: start apache-tomcat
-       command: nohup "/root/tomcat/bin/startup.sh"
+    - name: start apache-tomcat
+      command: nohup "/root/tomcat/bin/startup.sh"
 
