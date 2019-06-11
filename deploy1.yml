@@ -4,7 +4,7 @@
    - name: start apache-tomcat
      command: /root/tomcat/bin/startup.sh
 
-   - name: copy petclinic.war
+   - name: copy sample.war
      shell: cp /root/ansibledeployment/sample.war  /root/tomcat/webapps/
 
    - name: stop apache-tomcat
